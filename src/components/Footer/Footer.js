@@ -1,9 +1,10 @@
+import "./Footer.css";
+
 const Footer = () => {
-  console.log("footer");
   return (
     <footer className="footer">
-      <div>Developed by Practicum Students</div>
-      <div>2022</div>
+      <div>Developed by Practicum Students Saumya Nayak</div>
+      <div>2023</div>
     </footer>
   );
 };

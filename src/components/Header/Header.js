@@ -1,25 +1,36 @@
 import "./Header.css";
+import avatarImage from "../images/avatar.svg";
+import wtwrLogo from "../images/logo.svg";
 
-const Header = ({ onCreateModal }) => {
-  console.log("Header");
+const currentDate = new Date().toLocaleString("default", {
+  month: "long",
+  day: "numeric",
+});
 
+const Header = ({ onCreateModal, city }) => {
   return (
     <header className="header">
       <div className="header__logo">
         <div>
-          <img src={require("../images/logo.svg").default} alt="logo" />
+          <img src={wtwrLogo} alt="logo" />
         </div>
-        <div>June 15,New York </div>
+        <div>
+          {currentDate}, {city}
+        </div>
       </div>
       <div className="header__avatar-logo">
         <div>
-          <button type="text" onClick={onCreateModal}>
-            + New Clothes
+          <button
+            type="text"
+            className="header__add-clothes-button"
+            onClick={onCreateModal}
+          >
+            + Add New Clothes
           </button>
         </div>
-        <div>Terrence Tegegne</div>
+        <div>Name</div>
         <div>
-          <img src={require("../images/avatar.svg").default} alt="logo" />
+          <img src={avatarImage} alt="logo" />
         </div>
       </div>
     </header>
