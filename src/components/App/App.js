@@ -63,12 +63,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      const temperature = parseWeatherData(data);
-      const city = parseLocation(data);
-      setTemp(temperature);
-      setLocation(city);
-    });
+    getForecastWeather()
+      .then((data) => {
+        const temperature = parseWeatherData(data);
+        const city = parseLocation(data);
+        setTemp(temperature);
+        setLocation(city);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
@@ -84,12 +88,12 @@ function App() {
           buttonText={"Add garment"}
         >
           <div className="modal__input_wrapper">
-            <label>
+            <label className="modal__label_input">
               Name
               <input
                 type="text"
                 name="name"
-                minlength="1"
+                minLength="1"
                 maxLength="30"
                 placeholder="Name"
                 className="modal__input"
@@ -97,12 +101,12 @@ function App() {
             </label>
           </div>
           <div className="modal__input_wrapper">
-            <label>
+            <label className="modal__label_input">
               Image
               <input
                 type="url"
                 name="link"
-                minlength="1"
+                minLength="1"
                 maxLength="30"
                 placeholder="Image URL"
                 className="modal__input"
