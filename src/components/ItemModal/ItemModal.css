@@ -36,7 +36,7 @@
   left: calc(100% - 35px);
   width: 20px;
   height: 20px;
-  /* background-image: url("../../images/white_close_button.svg"); */
+  background-image: url("../images/ModalClose.svg");
   border: none;
   fill: #fff;
   background-color: transparent;
