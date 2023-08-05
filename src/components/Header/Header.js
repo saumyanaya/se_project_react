@@ -1,6 +1,6 @@
 import "./Header.css";
-import avatarImage from "../images/avatar.svg";
-import wtwrLogo from "../images/logo.svg";
+import avatarImage from "../../images/avatar.svg";
+import wtwrLogo from "../../images/logo.svg";
 
 const currentDate = new Date().toLocaleString("default", {
   month: "long",

@@ -36,7 +36,7 @@
   left: calc(100% - 50px);
   width: 20px;
   height: 20px;
-  background-image: url("../images/ModalClose.svg");
+  background-image: url("../../images/ModalClose.svg");
   border: 1px black;
   background-color: transparent;
   background-repeat: no-repeat;

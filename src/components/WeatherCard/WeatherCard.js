@@ -1,5 +1,5 @@
 import "./WeatherCard.css";
-import { WeatherOptions } from "../utils/constants.js";
+import { WeatherOptions } from "../../utils/constants.js";
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const imageSrc = WeatherOptions.filter((i) => {
