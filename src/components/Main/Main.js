@@ -8,7 +8,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 const Main = ({ weatherTemp, onSelectCard }) => {
   const currentTemperatureUnit = useContext(CurrentTemperatureUnitContext);
   const temp =
-    weatherTemp?.temp?.[currentTemperatureUnit.currentTemperatureUnit];
+    weatherTemp?.temperature?.[currentTemperatureUnit.currentTemperatureUnit];
   const getWeatherType = (temp) => {
     if (temp >= 86) {
       return "hot";
@@ -28,7 +28,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
 
   return (
     <main className="main">
-      <WeatherCard day={false} type="cloud" weatherTemp={weatherTemp.temp} />
+      <WeatherCard day={false} type="cloud" weatherTemp={temp} />
       <section className="card_section" id="card_section">
         <div className="clothing__intro">
           Today is {temp}° F You may want to wear:
