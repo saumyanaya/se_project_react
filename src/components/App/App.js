@@ -119,7 +119,7 @@ function App() {
     deleteItem(cardElement)
       .then(() => {
         const newClothesList = clothingItems.filter((cards) => {
-          return cards.id !== cardElement;
+          return cards.id !== cardElement.id;
         });
         setClothingItems(newClothesList);
         handleCloseModal();

@@ -23,14 +23,14 @@
   height: min-content;
 }
 
-.item_modal__item_image {
+.modal__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
 }
 
-.item_modal__close_button {
+.modal__close {
   position: absolute;
   bottom: calc(100% - 35px);
   left: calc(100% - 35px);
@@ -44,12 +44,12 @@
   cursor: pointer;
 }
 
-.item_modal__close_button:hover {
+.modal__close:hover {
   transform: scale(2);
   cursor: pointer;
 }
 
-.item_modal__caption {
+.modal__caption {
   background-color: #fff;
   font-size: 20px;
   line-height: 24px;
@@ -59,30 +59,28 @@
   border-radius: 0 0 20px 20px;
 }
 
-.item_modal__caption_name {
+.modal__name {
   color: #000;
   margin-bottom: 10px;
 }
 
-.item_modal__caption_weather {
+.modal__weather {
   color: #000;
 }
 .modal__delete {
-  color: #ff4d00;
-  font-family: Cabinet Grotesk;
-  font-size: 20px;
-  font-style: normal;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-weight: 700;
+  font-size: 20px;
   line-height: 24px;
+  color: #ff4d00;
   border: none;
-  background-color: white;
-  display: flex;
-  align-self: flex-end;
-  padding-bottom: 32px;
-  display: grid;
-  justify-content: flex-end;
-  grid-area: b;
-  padding-right: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  left: 350px;
+  top: -50px;
+  height: 0;
 }
 
 .modal__delete:hover {
