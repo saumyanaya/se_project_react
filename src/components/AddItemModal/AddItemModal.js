@@ -35,8 +35,6 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       title="New Garment"
       onClose={handleCloseModal}
       isOpen={isOpen}
-      modalType={"add_garment"}
-      buttonText={"Add garment"}
       onSubmit={handleSubmit}
     >
       <div className="modal__input_wrapper">
