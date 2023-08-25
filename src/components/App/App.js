@@ -15,6 +15,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { defaultClothingItems } from "../../utils/constants";
 
 //---------------------------------------------Functions------------------------------------------------------
 
@@ -24,7 +25,7 @@ function App() {
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState([]);
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   //-----------------------------------------------UseEffects-------------------------------------------------
 
@@ -88,7 +89,6 @@ function App() {
 
   //-------------------------------------------------const------------------------------------------------------
   const onAddItem = (values) => {
-    console.log(values);
     addItem(values)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
@@ -106,20 +106,20 @@ function App() {
   const handleCloseModal = () => {
     setActiveModal("");
   };
-  const handleSelectedCard = (card) => {
+  const handleSelectedCard = (selectedCard) => {
     setActiveModal("preview");
-    setSelectedCard(card);
+    setSelectedCard(selectedCard);
   };
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
-  const handleDeleteCard = (cardElement) => {
-    deleteItem(cardElement)
+  const handleDeleteCard = (selectedCard) => {
+    deleteItem(selectedCard)
       .then(() => {
         const newClothesList = clothingItems.filter((cards) => {
-          return cards.id !== cardElement.id;
+          return cards.id !== selectedCard.id;
         });
         setClothingItems(newClothesList);
         handleCloseModal();

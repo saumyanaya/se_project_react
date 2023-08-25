@@ -3,10 +3,6 @@ import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
 const ClothesSection = ({ onSelectCard, onCreateModal, clothingItems }) => {
-  const parsedCards = clothingItems.filter((item) => {
-    return item.weather;
-  });
-  console.log(parsedCards);
   return (
     <div className="clothes__section">
       <div className="clothes__section-title-wrapper">
@@ -22,7 +18,11 @@ const ClothesSection = ({ onSelectCard, onCreateModal, clothingItems }) => {
       <div className="clothing__section-cards">
         {clothingItems.map((item) => {
           return (
-            <ItemCard key={item.id} item={item} onSelectCard={onSelectCard} />
+            <ItemCard
+              key={item?._id ?? item?.id}
+              item={item}
+              onSelectCard={onSelectCard}
+            />
           );
         })}
       </div>
