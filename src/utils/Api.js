@@ -21,13 +21,13 @@ export const getItems = () => {
 };
 
 // POST Items
-export const addItem = ({ name, link, weather }) => {
+export const addItem = ({ name, imageUrl, weather }) => {
   const addItem = fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, link, weather }),
+    body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
 
   return addItem;
