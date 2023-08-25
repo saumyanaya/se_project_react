@@ -147,7 +147,7 @@ function App() {
           <Route path="/profile">
             <Profile
               clothingItems={clothingItems}
-              onCreateModal={handleCreateModal}
+              handleCreateModal={handleCreateModal}
               onSelectCard={handleSelectedCard}
             ></Profile>
           </Route>
