@@ -2,7 +2,7 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-const ClothesSection = ({ onSelectCard, onCreateModal, clothingItems }) => {
+const ClothesSection = ({ onSelectCard, handleCreateModal, clothingItems }) => {
   return (
     <div className="clothes__section">
       <div className="clothes__section-title-wrapper">
@@ -10,7 +10,7 @@ const ClothesSection = ({ onSelectCard, onCreateModal, clothingItems }) => {
         <button
           type="submit"
           className="clothes__section-button"
-          onClick={onCreateModal}
+          onClick={handleCreateModal}
         >
           + Add new
         </button>

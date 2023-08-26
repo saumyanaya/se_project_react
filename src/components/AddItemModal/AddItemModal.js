@@ -66,6 +66,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             className="modal__input"
             value={imageUrl}
             onChange={handleUrlChange}
+            required
           />
         </label>
       </div>

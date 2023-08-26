@@ -8,6 +8,7 @@ const WeatherCard = ({ day, type, weatherTemp = "" }) => {
     return i.day === day && i.type === type;
   });
   const imageSrcUrl = imageSrc[0].url || "";
+
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   return (
     <section className="weather" id="weather">

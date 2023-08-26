@@ -15,7 +15,6 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { defaultClothingItems } from "../../utils/constants";
 
 //---------------------------------------------Functions------------------------------------------------------
 
@@ -25,7 +24,7 @@ function App() {
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
 
   //-----------------------------------------------UseEffects-------------------------------------------------
 
@@ -135,7 +134,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header onCreateModal={handleCreateModal} city={location} />
+        <Header handleCreateModal={handleCreateModal} city={location} />
         <Switch>
           <Route exact path="/">
             <Main
