@@ -51,6 +51,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             className="modal__input"
             onChange={handleNameChange}
             value={name}
+            required
           />
         </label>
       </div>
