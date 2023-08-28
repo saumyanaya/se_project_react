@@ -57,6 +57,8 @@
   padding: 20px;
   box-sizing: border-box;
   border-radius: 0 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .item_modal__caption_name {
@@ -77,7 +79,6 @@
   background-color: transparent;
   cursor: pointer;
   text-align: left;
-  position: relative;
   left: 350px;
   top: -50px;
   height: 0;

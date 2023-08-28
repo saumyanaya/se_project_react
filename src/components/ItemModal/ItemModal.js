@@ -16,9 +16,11 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteCard }) => {
           alt={selectedCard.name}
         />
         <div className="item_modal__caption">
-          <div className="item_modal__caption_name">{selectedCard.name}</div>
-          <div className="item_modal__caption_weather">
-            Weather:{selectedCard.weather}
+          <div>
+            <div className="item_modal__caption_name">{selectedCard.name}</div>
+            <div className="item_modal__caption_weather">
+              Weather:{selectedCard.weather}
+            </div>
           </div>
           <button
             className="item_modal__delete_button"
