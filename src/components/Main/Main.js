@@ -9,24 +9,26 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const temp =
     weatherTemp?.temperature?.[currentTemperatureUnit.currentTemperatureUnit];
   const getWeatherType = () => {
-    if (temp >= 86) {
-      return "hot";
-    } else if (temp >= 66 && temp <= 85) {
-      return "warm";
-    } else if (temp <= 65) {
-      return "cold";
+    if (currentTemperatureUnit.currentTemperatureUnit === "F") {
+      if (temp >= 86) {
+        return "hot";
+      } else if (temp >= 66 && temp <= 85) {
+        return "warm";
+      } else if (temp <= 65) {
+        return "cold";
+      }
+    }
+
+    if (currentTemperatureUnit.currentTemperatureUnit === "C") {
+      if (temp >= 30) {
+        return "hot";
+      } else if (temp >= 19 && temp <= 29) {
+        return "warm";
+      } else if (temp <= 18) {
+        return "cold";
+      }
     }
   };
-
-  if (currentTemperatureUnit === "C") {
-    if (temp >= 30) {
-      return "hot";
-    } else if (temp >= 19 && temp <= 29) {
-      return "warm";
-    } else if (temp <= 18) {
-      return "cold";
-    }
-  }
 
   const weatherType = getWeatherType();
 
