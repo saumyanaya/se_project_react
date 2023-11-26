@@ -25,3 +25,43 @@
   display: flex;
   justify-content: center;
 }
+.card__likeButton {
+  width: 22px;
+  height: 19px;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+  background: no-repeat;
+  border: none;
+}
+
+.card__likeButton-active {
+  /* background-image: url(../../../images/heart_button_active.svg); */
+}
+
+.card__likeButton-inactive {
+  /* background-image: url(../../../images/heart_button_inactive.svg); */
+}
+.card__title {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.card__element {
+  margin: 0;
+  text-align: center;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #fff;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+}

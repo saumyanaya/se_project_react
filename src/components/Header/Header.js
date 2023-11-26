@@ -1,44 +1,84 @@
 import "./Header.css";
-import avatarImage from "../../images/avatar.svg";
 import wtwrLogo from "../../images/logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
-const currentDate = new Date().toLocaleString("default", {
-  month: "long",
-  day: "numeric",
-});
+const Header = ({
+  handleCreateModal,
+  weatherLocation,
+  onLoginModal,
+  onRegisterModal,
+  loggedIn,
+}) => {
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
+  const currentUser = useContext(CurrentUserContext);
+  const avatarImage = currentUser.avatar !== "" ? true : false;
 
-const Header = ({ handleCreateModal, city }) => {
   return (
     <header className="header">
       <div className="header__logo">
-        <div>
-          <Link to="/">
-            <img src={wtwrLogo} alt="logo" />
-          </Link>
-        </div>
-        <div>
-          {currentDate}, {city}
-        </div>
-      </div>
-      <div className="header__avatar-logo">
-        <ToggleSwitch />
-        <div>
-          <button
-            type="text"
-            className="header__add-clothes-button"
-            onClick={handleCreateModal}
-          >
-            + Add New Clothes
-          </button>
-        </div>
-        <Link to="/profile" className="header__profile-link">
-          Saumya Nayak
+        <Link to="/">
+          <img src={wtwrLogo} alt="App logo" />
         </Link>
-        <div>
-          <img src={avatarImage} alt="logo" />
-        </div>
+
+        <p className="header__date">
+          {currentDate}, {weatherLocation}
+        </p>
+      </div>
+
+      <div className="header__profile">
+        <ToggleSwitch />
+        {loggedIn ? (
+          <>
+            <div>
+              <button
+                className="header__add-btn"
+                type="text"
+                onClick={handleCreateModal}
+              >
+                + Add Clothes
+              </button>
+            </div>
+            <Link to="/profile">
+              <div className="header__name">{currentUser.name}</div>
+            </Link>
+            {avatarImage ? (
+              <div>
+                <img
+                  className="header__avatar"
+                  src={currentUser.avatar}
+                  alt="Avatar icon"
+                />
+              </div>
+            ) : (
+              <p className="header__avatar-default">
+                {currentUser.name[0].toUpperCase()}
+              </p>
+            )}
+          </>
+        ) : (
+          <>
+            <button
+              className="header__register-btn"
+              type="button"
+              onClick={onRegisterModal}
+            >
+              Sign Up
+            </button>
+            <button
+              className="header__login-btn"
+              type="button"
+              onClick={onLoginModal}
+            >
+              Login
+            </button>
+          </>
+        )}
       </div>
     </header>
   );

@@ -1,7 +1,20 @@
 import "./ItemModal.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
 
 const ItemModal = ({ selectedCard, onClose, handleDeleteCard }) => {
+  const currentUser = useContext(CurrentUserContext);
+  // const token = localStorage.getItem("jwt");
+  const isOwner = selectedCard.owner === currentUser._id;
+
+  const itemModalDeleteButton = ` ${
+    isOwner ? "modal__delete-button_visible" : "modal__delete-button_hidden"
+  }`;
+  // const handleDeletedCard = () => {
+  //   onDeleteItem(selectedCard._id, token);
+  // };
+
   return (
     <div className={`item__modal`}>
       <div className="item_modal__content">
