@@ -19,7 +19,7 @@ import {
 } from "../../utils/Api";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
@@ -29,7 +29,6 @@ import {
   getUserInfo,
   editProfile,
 } from "../../utils/auth.js";
-import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
@@ -46,6 +45,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+
   //-----------------------------------------------UseEffects-------------------------------------------------
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");

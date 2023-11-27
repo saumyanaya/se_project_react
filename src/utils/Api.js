@@ -1,5 +1,3 @@
-import React from "react";
-
 const baseUrl = "http://localhost:3001";
 
 export const checkResponse = (res) => {
