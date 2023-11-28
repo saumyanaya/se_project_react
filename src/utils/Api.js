@@ -21,7 +21,7 @@ export const getItems = () => {
 };
 
 // POST Items
-export const newItem = ({ name, imageUrl, weather }) => {
+export const addItem = ({ name, imageUrl, weather }) => {
   const addItem = fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -30,6 +30,9 @@ export const newItem = ({ name, imageUrl, weather }) => {
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
+  // .catch((error) => {
+  //   console.error(error.status);
+  // });
 
   return addItem;
 };

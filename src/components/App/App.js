@@ -13,7 +13,7 @@ import {
 import {
   deleteItem,
   getItems,
-  newItem,
+  addItem,
   addCardLike,
   removeCardLike,
 } from "../../utils/Api";
@@ -32,6 +32,7 @@ import {
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 //---------------------------------------------Functions------------------------------------------------------
@@ -121,21 +122,6 @@ function App() {
 
   //-------------------------------------------------const------------------------------------------------------
 
-  const onAddItem = (values) => {
-    newItem = {
-      name: values.name,
-      imageUrl: values.imageUrl,
-      weather: values.weatherType,
-      token: values.token,
-    };
-    setClothingItems(newItem)
-      .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
-        handleCloseModal();
-      })
-      .catch(console.error);
-  };
-
   const handleCreateModal = () => {
     setActiveModal("create");
   };
@@ -188,7 +174,8 @@ function App() {
   };
   const handleRegisterSubmit = (email, password, name, avatar) => {
     postSignup({ email, password, name, avatar })
-      .then((res) => {
+      .then((user) => {
+        setCurrentUser(user);
         handleCloseModal();
         handleLogin(email, password);
       })
@@ -220,6 +207,20 @@ function App() {
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
+
+  const onAddItem = (values) => {
+    const item = {
+      name: values.name,
+      imageUrl: values.imageUrl,
+      weather: values.weatherType,
+    };
+    const newClothesRequest = () => {
+      return clothingItems(item).then((item) => {
+        setClothingItems([item.data, ...clothingItems]);
+      });
+    };
+    handleCloseModal(newClothesRequest);
   };
 
   const handleDeleteCard = (selectedCard) => {
