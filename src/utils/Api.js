@@ -30,9 +30,6 @@ export const addItem = ({ name, imageUrl, weather }) => {
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
-  // .catch((error) => {
-  //   console.error(error.status);
-  // });
 
   return addItem;
 };

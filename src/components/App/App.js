@@ -209,18 +209,29 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
+  // const onAddItem = (values) => {
+  //   const item = {
+  //     name: values.name,
+  //     imageUrl: values.imageUrl,
+  //     weather: values.weatherType,
+  //   };
+
+  //   const newClothesRequest = () => {
+  //     return clothingItems(item).then((item) => {
+  //       setClothingItems([item.data, ...clothingItems]);
+  //     });
+  //   };
+  //   handleCloseModal(newClothesRequest);
+  // };
   const onAddItem = (values) => {
-    const item = {
-      name: values.name,
-      imageUrl: values.imageUrl,
-      weather: values.weatherType,
-    };
-    const newClothesRequest = () => {
-      return clothingItems(item).then((item) => {
-        setClothingItems([item.data, ...clothingItems]);
+    addItem(values)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error(error.status);
       });
-    };
-    handleCloseModal(newClothesRequest);
   };
 
   const handleDeleteCard = (selectedCard) => {
