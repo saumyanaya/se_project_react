@@ -14,7 +14,7 @@ export const getItems = () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer  ${localStorage.getItem("jwt")}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   }).then(checkResponse);
   return getItems;
@@ -26,7 +26,7 @@ export const addItem = ({ name, imageUrl, weather }) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer  ${localStorage.getItem("jwt")}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
@@ -36,11 +36,11 @@ export const addItem = ({ name, imageUrl, weather }) => {
 
 // DELETE Items
 export const deleteItem = (selectedCard) => {
-  const deleteItem = fetch(`${baseUrl}/items/${selectedCard.id} `, {
+  const deleteItem = fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer  ${localStorage.getItem("jwt")}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   }).then(checkResponse);
   return deleteItem;

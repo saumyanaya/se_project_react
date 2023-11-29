@@ -32,7 +32,6 @@ import {
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
-import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 //---------------------------------------------Functions------------------------------------------------------
@@ -209,20 +208,6 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  // const onAddItem = (values) => {
-  //   const item = {
-  //     name: values.name,
-  //     imageUrl: values.imageUrl,
-  //     weather: values.weatherType,
-  //   };
-
-  //   const newClothesRequest = () => {
-  //     return clothingItems(item).then((item) => {
-  //       setClothingItems([item.data, ...clothingItems]);
-  //     });
-  //   };
-  //   handleCloseModal(newClothesRequest);
-  // };
   const onAddItem = (values) => {
     addItem(values)
       .then((data) => {
@@ -238,7 +223,7 @@ function App() {
     deleteItem(selectedCard)
       .then(() => {
         const newClothesList = clothingItems.filter((cards) => {
-          return cards.id !== selectedCard.id;
+          return cards.id !== selectedCard._id;
         });
         setClothingItems(newClothesList);
         handleCloseModal();
