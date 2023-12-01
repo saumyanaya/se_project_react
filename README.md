@@ -1,4 +1,4 @@
-My Overview:
+    My Overview:
 
 WTWR (What to Wear?)
 
@@ -10,7 +10,7 @@ Plans for Improvement
 
 Future improvements include adding more weather and clothing options. Users will be able to add their own clothing selections for different weather types. The site will also be updated to be responsive to different screen sizes. There will also be different weather images uploaded based on the weather. Lastly this page will be deployed to github.
 
-**Link to Back End Project**
+<!-- Link to Back End Project -->
 
 https://github.com/saumyanaya/se_project_express
 
