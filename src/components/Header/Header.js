@@ -21,6 +21,8 @@ const Header = ({
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
   const name = currentUser.name;
+  // alert(name);
+  // alert(avatar);
 
   return (
     <header className="header">
