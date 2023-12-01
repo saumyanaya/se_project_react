@@ -53,7 +53,7 @@ function App() {
       getUserInfo(jwt)
         .then((res) => {
           if (res) {
-            setCurrentUser(res);
+            setCurrentUser(res.user);
             setLoggedIn(true);
           }
         })

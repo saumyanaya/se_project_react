@@ -9,7 +9,6 @@ const EditProfileModal = ({
   isOpen,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  //alert("edit profile : " + currentUser.name + " " + currentUser.avatar);
 
   const [name, setName] = useState(currentUser.name || "");
 

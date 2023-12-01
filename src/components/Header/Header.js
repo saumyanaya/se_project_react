@@ -1,6 +1,6 @@
 import "./Header.css";
 import wtwrLogo from "../../images/logo.svg";
-import avatarImage from "../../images/avatar.svg";
+
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -21,8 +21,6 @@ const Header = ({
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
   const name = currentUser.name;
-  // alert(name);
-  // alert(avatar);
 
   return (
     <header className="header">
@@ -50,13 +48,13 @@ const Header = ({
               </button>
             </div>
             <Link to="/profile">
-              <div className="header__name">Saumya Nayak</div>
+              <div className="header__name">{name}</div>
             </Link>
             {showAvatar ? (
               <div>
                 <img
                   className="header__avatar"
-                  src={avatarImage}
+                  src={avatar}
                   alt="Avatar icon"
                 />
               </div>

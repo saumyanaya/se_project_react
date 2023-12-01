@@ -69,7 +69,6 @@ const LoginModal = ({ handleCloseModal, isOpen, onLogin, setActiveModal }) => {
           ></input>
         </label>
       </div>
-      {/* <div> */}
       <button
         type="button"
         className="modal__submit-button modal__submit-button2"
@@ -77,7 +76,6 @@ const LoginModal = ({ handleCloseModal, isOpen, onLogin, setActiveModal }) => {
       >
         or Register
       </button>
-      {/* </div> */}
     </ModalWithForm>
   );
 };

@@ -12,7 +12,6 @@ const ClothesSection = ({
   clothingItems,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  // alert("clothes section : " + currentUser.name + " " + currentUser.avatar);
   const currentItems = clothingItems.filter((item) => {
     return item.owner === currentUser._id;
   });
