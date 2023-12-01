@@ -55,7 +55,7 @@ const Main = ({
             <ItemCard
               item={item}
               onSelectCard={onSelectCard}
-              key={item?._id ?? item?.id}
+              key={item?.id ?? item?._id}
               onCardLike={onCardLike}
               isLoggedIn={isLoggedIn}
             />

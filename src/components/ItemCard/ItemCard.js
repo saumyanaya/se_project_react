@@ -14,22 +14,22 @@ const ItemCard = ({ item, onCardLike, onSelectCard }) => {
 
   return (
     <div className="clothing_card">
-      <div className="card_name">{item.name}</div>
-      <img
-        src={item?.imageUrl || item?.link}
-        alt={item.name}
-        className="card_image"
-        onClick={() => onSelectCard(item)}
-      />
-      <div className="card__title">
-        <h2 className="card__element">{item.name}</h2>
+      <div className="card_name">
+        {item.name}
         <button
           className={itemLikeButtonClassName}
           type="button"
           onClick={() => handleCardLikeClick(item)}
         ></button>
       </div>
+      <img
+        src={item?.imageUrl || item?.link}
+        alt={item.name}
+        className="card_image"
+        onClick={() => onSelectCard(item)}
+      />
     </div>
   );
 };
+
 export default ItemCard;

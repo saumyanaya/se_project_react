@@ -112,15 +112,15 @@ const RegisterModal = ({
           ></input>
         </label>
       </div>
-      <div>
-        <button
-          type="button"
-          className="modal__submit-button modal__submit-button2"
-          onClick={handleLoginClick}
-        >
-          or Log In
-        </button>
-      </div>
+      {/* <div> */}
+      <button
+        type="button"
+        className="modal__submit-button modal__submit-button2"
+        onClick={handleLoginClick}
+      >
+        or Log In
+      </button>
+      {/* </div> */}
     </ModalWithForm>
   );
 };

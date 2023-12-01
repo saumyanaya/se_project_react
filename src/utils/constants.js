@@ -20,8 +20,8 @@ export const latitude = 44.34;
 export const longitude = 10.99;
 export const APIkey = "10b07b30c6133dd71134baab456a2f78";
 
-// - - - CLOTHING API - - - //
-export const baseUrl = "http://localhost:3001";
+// // - - - CLOTHING API - - - //
+// export const baseUrl = "http://localhost:3001";
 
 export const headers = {
   authorization: "",

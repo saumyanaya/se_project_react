@@ -1,4 +1,4 @@
-import { baseUrl } from "./constants";
+import { baseUrl } from "../utils/Api";
 import { checkResponse } from "../utils/Api";
 
 //sign up

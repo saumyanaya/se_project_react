@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+  const token = localStorage.getItem("jwt");
   const [name, setName] = useState("");
 
   const handleNameChange = (e) => {
@@ -30,7 +31,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
+    onAddItem({ name, imageUrl, weather, token });
   };
   return (
     <ModalWithForm

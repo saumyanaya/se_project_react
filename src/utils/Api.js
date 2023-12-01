@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001";
+export const baseUrl = "http://localhost:3001";
 
 export const checkResponse = (res) => {
   if (res.ok) {
@@ -45,8 +45,8 @@ export const deleteItem = (selectedCard) => {
   }).then(checkResponse);
   return deleteItem;
 };
-export const addCardLike = (itemId) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+export const addCardLike = (item) => {
+  return fetch(`${baseUrl}/items/${item._id}/likes`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
@@ -55,8 +55,8 @@ export const addCardLike = (itemId) => {
   }).then((res) => checkResponse(res));
 };
 
-export const removeCardLike = (itemId) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+export const removeCardLike = (item) => {
+  return fetch(`${baseUrl}/items/${item._id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

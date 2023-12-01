@@ -1,5 +1,6 @@
 import "./Header.css";
 import wtwrLogo from "../../images/logo.svg";
+import avatarImage from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -17,7 +18,9 @@ const Header = ({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const avatarImage = currentUser.avatar !== "" ? true : false;
+  const avatar = currentUser ? currentUser.avatar : undefined;
+  const showAvatar = avatar !== "" ? true : false;
+  const name = currentUser.name;
 
   return (
     <header className="header">
@@ -45,20 +48,18 @@ const Header = ({
               </button>
             </div>
             <Link to="/profile">
-              <div className="header__name">{currentUser.name}</div>
+              <div className="header__name">Saumya Nayak</div>
             </Link>
-            {avatarImage ? (
+            {showAvatar ? (
               <div>
                 <img
                   className="header__avatar"
-                  src={currentUser.avatar}
+                  src={avatarImage}
                   alt="Avatar icon"
                 />
               </div>
             ) : (
-              <p className="header__avatar-default">
-                {currentUser.name[0].toUpperCase()}
-              </p>
+              <p className="header__avatar-default">{name[0].toUpperCase()}</p>
             )}
           </>
         ) : (

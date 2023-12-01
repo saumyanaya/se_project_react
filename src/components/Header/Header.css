@@ -52,27 +52,28 @@
 }
 
 .header__register-btn {
+  border: none;
+  background-color: #fff;
   color: #000;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 120% */
-  background-color: #fff;
-  border: none;
+  line-height: 1.2;
   cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
 }
-
 .header__login-btn {
+  border: none;
+  background-color: #fff;
   color: #000;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 120% */
-  background-color: #fff;
-  border: none;
+  line-height: 1.2;
   cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .header__avatar {

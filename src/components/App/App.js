@@ -12,10 +12,10 @@ import {
 } from "../../utils/weatherApi";
 import {
   deleteItem,
-  getItems,
-  addItem,
   addCardLike,
   removeCardLike,
+  getItems,
+  addItem,
 } from "../../utils/Api";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
@@ -33,7 +33,7 @@ import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-
+import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 //---------------------------------------------Functions------------------------------------------------------
 
 function App() {
@@ -127,7 +127,7 @@ function App() {
   const handleLoginModal = () => {
     setActiveModal("login");
   };
-  const EditProfileModal = () => {
+  const handleEditProfileModal = () => {
     setActiveModal("editProfile");
   };
   const handleRegisterModal = () => {
@@ -149,8 +149,9 @@ function App() {
       .catch(console.error);
   };
 
-  const handleEditProfileSubmit = (name, avatar, token) => {
-    editProfile(name, avatar, token)
+  const handleEditProfileSubmit = (name, avatar) => {
+    const token = localStorage.getItem("jwt");
+    editProfile(currentUser, name, avatar, token)
       .then((res) => {
         setCurrentUser(res.data);
         handleCloseModal();
@@ -173,8 +174,8 @@ function App() {
   };
   const handleRegisterSubmit = (email, password, name, avatar) => {
     postSignup({ email, password, name, avatar })
-      .then((user) => {
-        setCurrentUser(user);
+      .then((res) => {
+        setCurrentUser(res.data);
         handleCloseModal();
         handleLogin(email, password);
       })
@@ -183,9 +184,8 @@ function App() {
 
   const handleCardLike = (item, isLiked, currentUser) => {
     const token = localStorage.getItem("jwt");
-
     !isLiked
-      ? addCardLike(item._id, currentUser._id, token)
+      ? addCardLike(item, currentUser._id, token)
           .then((res) => {
             setClothingItems((clothingItems) =>
               clothingItems.map((card) => (card._id === item._id ? res : card))
@@ -210,8 +210,8 @@ function App() {
 
   const onAddItem = (values) => {
     addItem(values)
-      .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+      .then((res) => {
+        setClothingItems([...clothingItems, res.data]);
         handleCloseModal();
       })
       .catch((error) => {
@@ -223,7 +223,7 @@ function App() {
     deleteItem(selectedCard)
       .then(() => {
         const newClothesList = clothingItems.filter((cards) => {
-          return cards.id !== selectedCard._id;
+          return cards._id !== selectedCard._id;
         });
         setClothingItems(newClothesList);
         handleCloseModal();
@@ -261,7 +261,7 @@ function App() {
               clothingItems={clothingItems}
               handleCreateModal={handleCreateModal}
               onSelectCard={handleSelectedCard}
-              onEditProfileModal={EditProfileModal}
+              onEditProfileModal={handleEditProfileModal}
               onLogout={handleLogout}
               loggedIn={loggedIn}
               onCardLike={handleCardLike}
@@ -316,7 +316,7 @@ function App() {
             onClose={handleCloseModal}
             onOpen={activeModal === "editProfile"}
             onSubmit={handleEditProfileSubmit}
-            // buttonText={isLoading ? "Saving..." : "Save changes"}
+            currentUser={currentUser}
           />
         )}
       </CurrentUserContext.Provider>
