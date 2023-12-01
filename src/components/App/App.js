@@ -139,6 +139,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           localStorage.setItem("jwt", res.token);
+          // setCurrentUser(res.data);
           setLoggedIn(true);
           handleCloseModal();
           return res;
@@ -151,9 +152,9 @@ function App() {
 
   const handleEditProfileSubmit = (name, avatar) => {
     const token = localStorage.getItem("jwt");
-    editProfile(currentUser, name, avatar, token)
+    editProfile(name, avatar, token)
       .then((res) => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         handleCloseModal();
       })
       .catch(console.error);
@@ -186,13 +187,15 @@ function App() {
     const token = localStorage.getItem("jwt");
     !isLiked
       ? addCardLike(item, currentUser._id, token)
-          .then((res) => {
+          .then((updatedCard) => {
             setClothingItems((clothingItems) =>
-              clothingItems.map((card) => (card._id === item._id ? res : card))
+              clothingItems.map((card) =>
+                card._id === item._id ? updatedCard : card
+              )
             );
           })
           .catch((err) => console.log(err))
-      : removeCardLike(item._id, currentUser._id, token)
+      : removeCardLike(item, currentUser._id, token)
           .then((updatedCard) => {
             setClothingItems((clothingItems) =>
               clothingItems.map((card) =>
