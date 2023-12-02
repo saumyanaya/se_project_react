@@ -59,7 +59,7 @@ const RegisterModal = ({
       buttonText="Next"
       buttonTextTwo="or Log In"
       handleClickTwo={handleLoginClick}
-      classNameTwo={"modal__submit-button modal__submit-button2"}
+      classNameTwo={"modal__submit-button"}
     >
       <div className="modal__text-inputs">
         <label className="modal__label">

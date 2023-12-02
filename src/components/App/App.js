@@ -168,7 +168,7 @@ function App() {
   };
   const handleLogout = () => {
     localStorage.removeItem("jwt");
-    setCurrentUser("");
+    setCurrentUser({});
     setLoggedIn(false);
     setClothingItems(clothingItems);
   };
@@ -269,7 +269,7 @@ function App() {
               onCardLike={handleCardLike}
             ></Profile>
           </ProtectedRoute>
-          <Route exact path="">
+          <Route path="*">
             {loggedIn ? <Redirect to="/profile" /> : <Redirect to="/" />}
           </Route>
         </Switch>

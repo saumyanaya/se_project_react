@@ -109,6 +109,10 @@
   border: none;
   cursor: pointer;
 }
+.modal__submit-button {
+  background-color: #fff;
+  border: none;
+}
 
 .modal__submit_button_two_hidden {
   visibility: hidden;
