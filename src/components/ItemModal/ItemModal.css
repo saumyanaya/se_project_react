@@ -48,6 +48,24 @@
   transform: scale(2);
   cursor: pointer;
 }
+.modal__delete-button_visible {
+  visibility: visible;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ff4d00;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: left;
+  left: 350px;
+  top: -50px;
+  height: 0;
+}
+.modal__delete-button_hidden {
+  visibility: hidden;
+}
 
 .item_modal__caption {
   background-color: #fff;
@@ -69,7 +87,7 @@
 .item_modal__caption_weather {
   color: #000;
 }
-.item_modal__delete_button {
+/* .item_modal__delete_button {
   font-family: "CabinetGrotesk-Bold", sans-serif;
   font-weight: 700;
   font-size: 20px;
@@ -82,7 +100,7 @@
   left: 350px;
   top: -50px;
   height: 0;
-}
+} */
 
 .item_modal__delete_button:hover {
   cursor: pointer;

@@ -57,6 +57,9 @@ const RegisterModal = ({
       modalName={"register"}
       onSubmit={handleRegisterSubmit}
       buttonText="Next"
+      buttonTextTwo="or Log In"
+      handleClickTwo={handleLoginClick}
+      classNameTwo={"modal__submit-button modal__submit-button2"}
     >
       <div className="modal__text-inputs">
         <label className="modal__label">
@@ -112,15 +115,6 @@ const RegisterModal = ({
           ></input>
         </label>
       </div>
-      {/* <div> */}
-      <button
-        type="button"
-        className="modal__submit-button modal__submit-button2"
-        onClick={handleLoginClick}
-      >
-        or Log In
-      </button>
-      {/* </div> */}
     </ModalWithForm>
   );
 };

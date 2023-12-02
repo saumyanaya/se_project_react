@@ -153,7 +153,7 @@ function App() {
     const token = localStorage.getItem("jwt");
     editProfile(name, avatar, token)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.user);
         handleCloseModal();
       })
       .catch(console.error);
@@ -168,7 +168,7 @@ function App() {
   };
   const handleLogout = () => {
     localStorage.removeItem("jwt");
-
+    setCurrentUser("");
     setLoggedIn(false);
     setClothingItems(clothingItems);
   };
@@ -213,7 +213,7 @@ function App() {
   const onAddItem = (values) => {
     addItem(values)
       .then((res) => {
-        setClothingItems([...clothingItems, res.data]);
+        setClothingItems([res.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch((error) => {
@@ -299,7 +299,6 @@ function App() {
             onLogin={handleLogin}
             setActiveModal={setActiveModal}
             onRegister={handleRegisterModal}
-            // buttonText={isLoading ? "Saving..." : "Save changes"}
           />
         )}
         {activeModal === "register" && (
@@ -309,7 +308,6 @@ function App() {
             onOpen={activeModal === "register"}
             onRegister={handleRegisterSubmit}
             setActiveModal={setActiveModal}
-            // buttonText={isLoading ? "Saving..." : "Save changes"}
           />
         )}
         {activeModal === "editProfile" && (

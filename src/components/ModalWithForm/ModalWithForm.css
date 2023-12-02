@@ -110,6 +110,10 @@
   cursor: pointer;
 }
 
+.modal__submit_button_two_hidden {
+  visibility: hidden;
+}
+
 .modal__submit_button:hover {
   background-color: rgba(0, 0, 0, 0.6);
   transition: background-color 1s;
