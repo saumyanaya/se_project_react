@@ -15,14 +15,14 @@ link to my BackEnd Repo here-https://github.com/saumyanaya/se_project_express
 Fetches weather data from an API Processes and analyzes weather data Generates clothing recommendations based on the forecast Displays the recommended clothing items to the user User-friendly interface for easy navigation
 
 ## Technologies Used
-React
-CSS
-API integration
-Figma for design
+React,
+CSS,
+API integration,
+Figma for design,
 Usage
 ## BackEnd
-Node JS
-MongoDB
+Node JS,
+MongoDB,
 Express JS
 
 ## Open the WTWR application.
