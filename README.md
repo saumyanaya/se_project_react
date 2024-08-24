@@ -1,5 +1,3 @@
-## Link to my BackEnd repo here- https://github.com/saumyanaya/se_project_express
-
 ## WTWR (What to Wear ?) -
 About the project
 WTWR is a weather based clothing recommendation application. The project goal is to provide user with suitable clothing recommendation based on the daily weather forecast.
